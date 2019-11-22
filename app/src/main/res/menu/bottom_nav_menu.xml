@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/title_home" />
+
+    <item
+        android:id="@+id/navigation_appusagestats"
+        android:icon="@drawable/baseline_schedule_white_24"
+        android:title="@string/title_app_usage" />
+
+    <item
+        android:id="@+id/navigation_installedApp"
+        android:icon="@drawable/baseline_apps_white_24"
+        android:title="@string/title_installed_app" />
+
+</menu>

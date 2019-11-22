@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Parental Control</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="title_activity_app_usage_stats">AppUsageStatsActivity</string>
+    <string name="app_usage_stats">App Usage Stats</string>
+    <string name="app_icon_content_description">App Icon</string>
+    <string name="sec">Sec:</string>
+    <string name="min">Min:</string>
+    <string name="hr">Hr:</string>
+    <string name="title_activity_installed_app">InstalledAppActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_app_usage">App Usage</string>
+    <string name="title_installed_app">App Installed</string>
+
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hi_there">Hi There!</string>
+    <string name="most_used_app_lable">Your most used app of the day.</string>
+</resources>
