@@ -24,6 +24,11 @@ import com.dewan.parentalcontrol.R;
 import com.dewan.parentalcontrol.databinding.FragmentHomeBinding;
 import com.dewan.parentalcontrol.db.entity.AppUsageEntity;
 import com.dewan.usagestatshelper.UsageStatsHelper;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
 import java.text.DecimalFormat;
 
@@ -35,6 +40,8 @@ public class HomeFragment extends Fragment {
     private HomeViewModel homeViewModel;
     private AppUsageEntity appUsageEntity;
     private static DecimalFormat decimalFormat;
+    private AdView mAdView;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -44,6 +51,17 @@ public class HomeFragment extends Fragment {
         homeViewModel = ViewModelProviders.of(this).get(HomeViewModel.class);
 
         checkUsageStatsPermission();
+
+        MobileAds.initialize(getActivity(), new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+                Log.e(TAG, "onInitializationComplete: " +  initializationStatus);
+            }
+        });
+        mAdView = fragmentHomeBinding.adView;
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
         return view;
     }
 
