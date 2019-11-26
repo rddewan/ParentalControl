@@ -21,7 +21,7 @@ import com.dewan.packagemanagerhelper.PackageManagerHelper;
 import com.dewan.parentalcontrol.R;
 import com.dewan.parentalcontrol.adaptor.InstalledAppAdaptor;
 import com.dewan.parentalcontrol.databinding.FragmentInstalledAppBinding;
-import com.dewan.parentalcontrol.db.entity.InstalledAppEntity;
+import com.dewan.parentalcontrol.model.db.entity.InstalledAppEntity;
 
 import java.util.ArrayList;
 import java.util.Collections;

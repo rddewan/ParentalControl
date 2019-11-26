@@ -1,4 +1,4 @@
-package com.dewan.parentalcontrol.db;
+package com.dewan.parentalcontrol.model.db;
 
 import android.app.usage.UsageStats;
 import android.content.Context;
@@ -11,9 +11,9 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-import com.dewan.parentalcontrol.db.dao.AppUsageDao;
-import com.dewan.parentalcontrol.db.entity.AppUsageEntity;
-import com.dewan.parentalcontrol.db.entity.InstalledAppEntity;
+import com.dewan.parentalcontrol.model.db.dao.AppUsageDao;
+import com.dewan.parentalcontrol.model.db.entity.AppUsageEntity;
+import com.dewan.parentalcontrol.model.db.entity.InstalledAppEntity;
 import com.dewan.usagestatshelper.AppUsageStatsProperty;
 import com.dewan.usagestatshelper.UsageStatsHelper;
 

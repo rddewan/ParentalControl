@@ -1,12 +1,11 @@
-package com.dewan.parentalcontrol.db.dao;
+package com.dewan.parentalcontrol.model.db.dao;
 
 import androidx.room.Dao;
-import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.dewan.parentalcontrol.db.entity.AppUsageEntity;
+import com.dewan.parentalcontrol.model.db.entity.AppUsageEntity;
 
 import java.util.List;
 @Dao

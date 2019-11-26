@@ -21,15 +21,15 @@ public class HomeViewModel extends AndroidViewModel {
         appUsageStatsRepository = new AppUsageStatsRepository(application);
     }
 
-    public MutableLiveData<Double> getSec() {
+    public LiveData<Double> getSec() {
         return appUsageStatsRepository.getMaxTimeUsedSec();
     }
 
-    public MutableLiveData<Double> getMin() {
+    public LiveData<Double> getMin() {
         return appUsageStatsRepository.getMaxTimeUsedMin();
     }
 
-    public MutableLiveData<Double> getHr() {
+    public LiveData<Double> getHr() {
         return appUsageStatsRepository.getMaxTimeUsedHr();
     }
 

@@ -10,11 +10,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
-import androidx.appcompat.widget.DialogTitle;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
@@ -22,8 +19,13 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.dewan.parentalcontrol.R;
 import com.dewan.parentalcontrol.databinding.FragmentHomeBinding;
-import com.dewan.parentalcontrol.db.entity.AppUsageEntity;
+import com.dewan.parentalcontrol.model.db.entity.AppUsageEntity;
 import com.dewan.usagestatshelper.UsageStatsHelper;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
 import java.text.DecimalFormat;
 
@@ -33,17 +35,31 @@ public class HomeFragment extends Fragment {
     private View view;
     private FragmentHomeBinding fragmentHomeBinding;
     private HomeViewModel homeViewModel;
-    private AppUsageEntity appUsageEntity;
+    private AppUsageEntity appUsageEntity = new AppUsageEntity();
     private static DecimalFormat decimalFormat;
+    private AdView mAdView;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         decimalFormat = new DecimalFormat("#.##");
         fragmentHomeBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_home,container,false);
         view = fragmentHomeBinding.getRoot();
+
         homeViewModel = ViewModelProviders.of(this).get(HomeViewModel.class);
 
         checkUsageStatsPermission();
+
+        MobileAds.initialize(getActivity(), new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+                Log.e(TAG, "onInitializationComplete: " +  initializationStatus);
+            }
+        });
+        mAdView = fragmentHomeBinding.adView;
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
         return view;
     }
 
@@ -51,19 +67,19 @@ public class HomeFragment extends Fragment {
         homeViewModel.getSec().observe(this, new Observer<Double>() {
             @Override
             public void onChanged(Double aDouble) {
-                appUsageEntity = new AppUsageEntity();
-                appUsageEntity.setTotalAppInForegroundSec(aDouble);
-                fragmentHomeBinding.txtTotalTimeForgroundSec.setText(decimalFormat.format(aDouble));
-                Log.e(TAG, "onChanged Sec: " + aDouble );
+                String data = decimalFormat.format(aDouble);
+                appUsageEntity.setTotalAppInForegroundSec(Double.parseDouble(data));
+                //fragmentHomeBinding.setAppUsageStatsHome(appUsageEntity);
+                Log.e(TAG, "onChanged Sec: " + appUsageEntity.getTotalAppInForegroundSec() );
             }
         });
 
         homeViewModel.getMin().observe(this, new Observer<Double>() {
             @Override
             public void onChanged(Double aDouble) {
-                appUsageEntity = new AppUsageEntity();
-                appUsageEntity.setTotalAppInForegroundMin(aDouble);
-                fragmentHomeBinding.txtTotalTimeForgroundMin.setText(decimalFormat.format(aDouble));
+                String data = decimalFormat.format(aDouble);
+                appUsageEntity.setTotalAppInForegroundMin(Double.parseDouble(data));
+                //fragmentHomeBinding.setAppUsageStatsHome(appUsageEntity);
                 Log.e(TAG, "onChanged Min: " + aDouble );
             }
         });
@@ -71,9 +87,9 @@ public class HomeFragment extends Fragment {
         homeViewModel.getHr().observe(this, new Observer<Double>() {
             @Override
             public void onChanged(Double aDouble) {
-                appUsageEntity = new AppUsageEntity();
-                appUsageEntity.setTotalAppInForegroundHr(aDouble);
-                fragmentHomeBinding.txtTotalTimeForgroundHr.setText(decimalFormat.format(aDouble));
+                String data = decimalFormat.format(aDouble);
+                appUsageEntity.setTotalAppInForegroundHr(Double.parseDouble(data));
+                //fragmentHomeBinding.setAppUsageStatsHome(appUsageEntity);
                 Log.e(TAG, "onChanged Hr: " + aDouble );
             }
         });
@@ -82,9 +98,9 @@ public class HomeFragment extends Fragment {
             @Override
             public void onChanged(Drawable drawable) {
                 Log.e(TAG, "onChanged: App Icon" );
-                appUsageEntity = new AppUsageEntity();
                 appUsageEntity.setApp_icon(drawable);
-                fragmentHomeBinding.imgAppLogo.setImageDrawable(drawable);
+                fragmentHomeBinding.setAppUsageStatsHome(appUsageEntity);
+
             }
         });
     }
@@ -111,7 +127,7 @@ public class HomeFragment extends Fragment {
                 startActivityForResult(intent, USAGE_STATS_PERMISSION);
             }
         });
-        builder.setNegativeButton("Cancle", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();

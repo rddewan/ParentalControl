@@ -1,4 +1,4 @@
-package com.dewan.parentalcontrol.db.entity;
+package com.dewan.parentalcontrol.model.db.entity;
 
 import android.graphics.drawable.Drawable;
 

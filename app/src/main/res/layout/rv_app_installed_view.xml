@@ -6,7 +6,7 @@
     <data>
         <variable
             name="InstalledAppProperty"
-            type="com.dewan.parentalcontrol.db.entity.InstalledAppEntity" />
+            type="com.dewan.parentalcontrol.model.db.entity.InstalledAppEntity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -27,7 +27,8 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@color/card_background">
 
                 <ImageView
                     android:id="@+id/imageView"
@@ -49,6 +50,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="@{InstalledAppProperty.appName}"
+                    android:textColor="@color/white"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imageView"
                     app:layout_constraintTop_toTopOf="@+id/imageView"
@@ -60,6 +62,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@{InstalledAppProperty.packageName}"
+                    android:textColor="@color/white"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imageView"
                     app:layout_constraintTop_toBottomOf="@+id/txt_app_name"
