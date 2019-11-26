@@ -66,10 +66,10 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
+                    android:src="@{AppUsageStatsHome.app_icon,default = @android:drawable/sym_def_app_icon}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/lb_header_msg"
-                    app:srcCompat="@android:drawable/sym_def_app_icon" />
+                    app:layout_constraintTop_toBottomOf="@+id/lb_header_msg" />
 
                 <TextView
                     android:id="@+id/lb_sec"
@@ -89,7 +89,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="@={AppUsageStatsHome.totalAppInForegroundSec}"
+                    android:text="@{AppUsageStatsHome.totalAppInForegroundSec}"
                     android:textColor="@color/white"
                     app:layout_constraintStart_toEndOf="@+id/lb_sec"
                     app:layout_constraintTop_toTopOf="@+id/img_app_logo"
@@ -104,14 +104,14 @@
                     android:text="@string/min"
                     android:textColor="@color/white"
                     app:layout_constraintStart_toEndOf="@+id/img_app_logo"
-                    app:layout_constraintTop_toBottomOf="@+id/lb_hr" />
+                    app:layout_constraintTop_toBottomOf="@+id/lb_sec" />
 
                 <TextView
                     android:id="@+id/txt_total_time_forground_min"
                     style="@style/TextStyle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text=""
+                    android:text="@{AppUsageStatsHome.totalAppInForegroundMin}"
                     android:textColor="@color/white"
                     app:layout_constraintStart_toEndOf="@+id/lb_sec"
                     app:layout_constraintTop_toBottomOf="@+id/txt_total_time_forground_sec"
@@ -122,18 +122,17 @@
                     style="@style/TextStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
                     android:text="@string/hr"
                     android:textColor="@color/white"
                     app:layout_constraintStart_toEndOf="@+id/img_app_logo"
-                    app:layout_constraintTop_toBottomOf="@+id/lb_sec" />
+                    app:layout_constraintTop_toBottomOf="@+id/lb_min" />
 
                 <TextView
                     android:id="@+id/txt_total_time_forground_hr"
                     style="@style/TextStyle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="@{}"
+                    android:text="@{AppUsageStatsHome.totalAppInForegroundHr}"
                     android:textColor="@color/white"
                     app:layout_constraintStart_toEndOf="@+id/lb_sec"
                     app:layout_constraintTop_toBottomOf="@+id/txt_total_time_forground_min"

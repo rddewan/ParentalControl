@@ -35,7 +35,7 @@ public class HomeFragment extends Fragment {
     private View view;
     private FragmentHomeBinding fragmentHomeBinding;
     private HomeViewModel homeViewModel;
-    private AppUsageEntity appUsageEntity;
+    private AppUsageEntity appUsageEntity = new AppUsageEntity();
     private static DecimalFormat decimalFormat;
     private AdView mAdView;
 
@@ -44,7 +44,6 @@ public class HomeFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         decimalFormat = new DecimalFormat("#.##");
         fragmentHomeBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_home,container,false);
-
         view = fragmentHomeBinding.getRoot();
 
         homeViewModel = ViewModelProviders.of(this).get(HomeViewModel.class);
@@ -68,12 +67,9 @@ public class HomeFragment extends Fragment {
         homeViewModel.getSec().observe(this, new Observer<Double>() {
             @Override
             public void onChanged(Double aDouble) {
-                appUsageEntity = new AppUsageEntity();
-                appUsageEntity.setTotalAppInForegroundSec(aDouble);
-                fragmentHomeBinding.invalidateAll();
-
-
-                //fragmentHomeBinding.txtTotalTimeForgroundSec.setText(decimalFormat.format(aDouble));
+                String data = decimalFormat.format(aDouble);
+                appUsageEntity.setTotalAppInForegroundSec(Double.parseDouble(data));
+                //fragmentHomeBinding.setAppUsageStatsHome(appUsageEntity);
                 Log.e(TAG, "onChanged Sec: " + appUsageEntity.getTotalAppInForegroundSec() );
             }
         });
@@ -81,9 +77,9 @@ public class HomeFragment extends Fragment {
         homeViewModel.getMin().observe(this, new Observer<Double>() {
             @Override
             public void onChanged(Double aDouble) {
-                appUsageEntity = new AppUsageEntity();
-                appUsageEntity.setTotalAppInForegroundMin(aDouble);
-                fragmentHomeBinding.txtTotalTimeForgroundMin.setText(decimalFormat.format(aDouble));
+                String data = decimalFormat.format(aDouble);
+                appUsageEntity.setTotalAppInForegroundMin(Double.parseDouble(data));
+                //fragmentHomeBinding.setAppUsageStatsHome(appUsageEntity);
                 Log.e(TAG, "onChanged Min: " + aDouble );
             }
         });
@@ -91,9 +87,9 @@ public class HomeFragment extends Fragment {
         homeViewModel.getHr().observe(this, new Observer<Double>() {
             @Override
             public void onChanged(Double aDouble) {
-                appUsageEntity = new AppUsageEntity();
-                appUsageEntity.setTotalAppInForegroundHr(aDouble);
-                fragmentHomeBinding.txtTotalTimeForgroundHr.setText(decimalFormat.format(aDouble));
+                String data = decimalFormat.format(aDouble);
+                appUsageEntity.setTotalAppInForegroundHr(Double.parseDouble(data));
+                //fragmentHomeBinding.setAppUsageStatsHome(appUsageEntity);
                 Log.e(TAG, "onChanged Hr: " + aDouble );
             }
         });
@@ -102,9 +98,9 @@ public class HomeFragment extends Fragment {
             @Override
             public void onChanged(Drawable drawable) {
                 Log.e(TAG, "onChanged: App Icon" );
-                appUsageEntity = new AppUsageEntity();
                 appUsageEntity.setApp_icon(drawable);
-                fragmentHomeBinding.imgAppLogo.setImageDrawable(drawable);
+                fragmentHomeBinding.setAppUsageStatsHome(appUsageEntity);
+
             }
         });
     }

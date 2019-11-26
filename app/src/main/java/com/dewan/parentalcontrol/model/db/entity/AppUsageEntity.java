@@ -1,18 +1,18 @@
 package com.dewan.parentalcontrol.model.db.entity;
 
 import android.graphics.drawable.Drawable;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 import androidx.databinding.BindingAdapter;
 import androidx.databinding.InverseBindingAdapter;
+import androidx.databinding.library.baseAdapters.BR;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
-
-import com.dewan.parentalcontrol.BR;
 
 import java.util.Comparator;
 
@@ -31,11 +31,12 @@ public class AppUsageEntity extends BaseObservable {
 
     @ColumnInfo(name = "total_app_in_foreground_sec")
     private double totalAppInForegroundSec;
+
     @ColumnInfo(name = "total_app_in_foreground_min")
     private double totalAppInForegroundMin;
+
     @ColumnInfo(name = "total_app_in_foreground_hr")
     private double totalAppInForegroundHr;
-
 
     @Ignore
     private Drawable app_icon;
@@ -88,7 +89,6 @@ public class AppUsageEntity extends BaseObservable {
         return totalAppInForegroundSec;
     }
 
-
     public void setTotalAppInForegroundSec(double totalAppInForegroundSec) {
         this.totalAppInForegroundSec = totalAppInForegroundSec;
         notifyPropertyChanged(com.dewan.parentalcontrol.BR.totalAppInForegroundSec);
@@ -101,7 +101,7 @@ public class AppUsageEntity extends BaseObservable {
 
     public void setTotalAppInForegroundMin(double totalAppInForegroundMin) {
         this.totalAppInForegroundMin = totalAppInForegroundMin;
-        notifyPropertyChanged(com.dewan.parentalcontrol.BR.totalAppInForegroundMin);
+        notifyPropertyChanged(BR.totalAppInForegroundMin);
     }
 
     @Bindable
@@ -111,7 +111,7 @@ public class AppUsageEntity extends BaseObservable {
 
     public void setTotalAppInForegroundHr(double totalAppInForegroundHr) {
         this.totalAppInForegroundHr = totalAppInForegroundHr;
-        notifyPropertyChanged(com.dewan.parentalcontrol.BR.totalAppInForegroundHr);
+        notifyPropertyChanged(BR.totalAppInForegroundHr);
     }
 
     @BindingAdapter("android:text")
@@ -122,6 +122,11 @@ public class AppUsageEntity extends BaseObservable {
     @InverseBindingAdapter(attribute = "android:text")
     public static double getText(TextView view) {
         return Double.parseDouble(view.getText().toString());
+    }
+
+    @BindingAdapter({"android:src"})
+    public static void setImageViewResource(ImageView imageView, Drawable drawable) {
+        imageView.setImageDrawable(drawable);
     }
 
     public static Comparator<AppUsageEntity> totalUsageTimeComparator = new Comparator<AppUsageEntity>() {
