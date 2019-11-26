@@ -18,19 +18,16 @@ import android.view.ViewGroup;
 
 import com.dewan.parentalcontrol.R;
 import com.dewan.parentalcontrol.adaptor.AppUsageStateAdaptor;
-import com.dewan.parentalcontrol.appstats.AppUsageStats;
 import com.dewan.parentalcontrol.databinding.FragmentAppUsageBinding;
-import com.dewan.parentalcontrol.db.AppDatabase;
-import com.dewan.parentalcontrol.db.dao.AppUsageDao;
-import com.dewan.parentalcontrol.db.entity.AppUsageEntity;
+import com.dewan.parentalcontrol.model.db.AppDatabase;
+import com.dewan.parentalcontrol.model.db.dao.AppUsageDao;
+import com.dewan.parentalcontrol.model.db.entity.AppUsageEntity;
 import com.dewan.usagestatshelper.AppUsageStatsProperty;
 import com.dewan.usagestatshelper.UsageStatsHelper;
 
-import java.text.CollationElementIterator;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Objects;
 import java.util.SortedMap;
 

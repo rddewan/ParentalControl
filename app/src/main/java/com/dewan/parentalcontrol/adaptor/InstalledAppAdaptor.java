@@ -1,7 +1,6 @@
 package com.dewan.parentalcontrol.adaptor;
 
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -10,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.dewan.parentalcontrol.R;
 import com.dewan.parentalcontrol.databinding.RvAppInstalledViewBinding;
-import com.dewan.parentalcontrol.db.entity.InstalledAppEntity;
+import com.dewan.parentalcontrol.model.db.entity.InstalledAppEntity;
 
 import java.util.ArrayList;
 

@@ -10,11 +10,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
-import androidx.appcompat.widget.DialogTitle;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
@@ -22,7 +19,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.dewan.parentalcontrol.R;
 import com.dewan.parentalcontrol.databinding.FragmentHomeBinding;
-import com.dewan.parentalcontrol.db.entity.AppUsageEntity;
+import com.dewan.parentalcontrol.model.db.entity.AppUsageEntity;
 import com.dewan.usagestatshelper.UsageStatsHelper;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -47,7 +44,9 @@ public class HomeFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         decimalFormat = new DecimalFormat("#.##");
         fragmentHomeBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_home,container,false);
+
         view = fragmentHomeBinding.getRoot();
+
         homeViewModel = ViewModelProviders.of(this).get(HomeViewModel.class);
 
         checkUsageStatsPermission();
@@ -71,8 +70,11 @@ public class HomeFragment extends Fragment {
             public void onChanged(Double aDouble) {
                 appUsageEntity = new AppUsageEntity();
                 appUsageEntity.setTotalAppInForegroundSec(aDouble);
-                fragmentHomeBinding.txtTotalTimeForgroundSec.setText(decimalFormat.format(aDouble));
-                Log.e(TAG, "onChanged Sec: " + aDouble );
+                fragmentHomeBinding.invalidateAll();
+
+
+                //fragmentHomeBinding.txtTotalTimeForgroundSec.setText(decimalFormat.format(aDouble));
+                Log.e(TAG, "onChanged Sec: " + appUsageEntity.getTotalAppInForegroundSec() );
             }
         });
 
@@ -129,7 +131,7 @@ public class HomeFragment extends Fragment {
                 startActivityForResult(intent, USAGE_STATS_PERMISSION);
             }
         });
-        builder.setNegativeButton("Cancle", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();

@@ -6,7 +6,7 @@
     <data>
         <variable
             name="AppUsageStatsHome"
-            type="com.dewan.parentalcontrol.db.entity.AppUsageEntity" />
+            type="com.dewan.parentalcontrol.model.db.entity.AppUsageEntity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -27,7 +27,8 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="@color/card_background">
 
                 <TextView
                     android:id="@+id/lb_header"
@@ -38,6 +39,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
                     android:text="@string/hi_there"
+                    android:textColor="@color/white"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -51,6 +53,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
                     android:text="@string/most_used_app_lable"
+                    android:textColor="@color/white"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
@@ -76,6 +79,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:text="@string/sec"
+                    android:textColor="@color/white"
                     app:layout_constraintStart_toEndOf="@+id/img_app_logo"
                     app:layout_constraintTop_toTopOf="@+id/img_app_logo" />
 
@@ -85,7 +89,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text=""
+                    android:text="@={AppUsageStatsHome.totalAppInForegroundSec}"
+                    android:textColor="@color/white"
                     app:layout_constraintStart_toEndOf="@+id/lb_sec"
                     app:layout_constraintTop_toTopOf="@+id/img_app_logo"
                     tools:text="100000" />
@@ -97,6 +102,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:text="@string/min"
+                    android:textColor="@color/white"
                     app:layout_constraintStart_toEndOf="@+id/img_app_logo"
                     app:layout_constraintTop_toBottomOf="@+id/lb_hr" />
 
@@ -106,6 +112,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text=""
+                    android:textColor="@color/white"
                     app:layout_constraintStart_toEndOf="@+id/lb_sec"
                     app:layout_constraintTop_toBottomOf="@+id/txt_total_time_forground_sec"
                     tools:text="100" />
@@ -117,6 +124,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:text="@string/hr"
+                    android:textColor="@color/white"
                     app:layout_constraintStart_toEndOf="@+id/img_app_logo"
                     app:layout_constraintTop_toBottomOf="@+id/lb_sec" />
 
@@ -125,7 +133,8 @@
                     style="@style/TextStyle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="}"
+                    android:text="@{}"
+                    android:textColor="@color/white"
                     app:layout_constraintStart_toEndOf="@+id/lb_sec"
                     app:layout_constraintTop_toBottomOf="@+id/txt_total_time_forground_min"
                     tools:text="10" />

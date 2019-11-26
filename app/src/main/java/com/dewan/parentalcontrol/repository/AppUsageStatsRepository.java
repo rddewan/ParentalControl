@@ -10,16 +10,12 @@ import android.util.Log;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.dewan.parentalcontrol.db.AppDatabase;
-import com.dewan.parentalcontrol.db.dao.AppUsageDao;
-import com.dewan.parentalcontrol.db.entity.AppUsageEntity;
+import com.dewan.parentalcontrol.model.db.AppDatabase;
 import com.dewan.usagestatshelper.AppUsageStatsProperty;
 import com.dewan.usagestatshelper.UsageStatsHelper;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 import java.util.Objects;
 import java.util.SortedMap;
 

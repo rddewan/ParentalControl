@@ -1,14 +1,18 @@
-package com.dewan.parentalcontrol.db.entity;
+package com.dewan.parentalcontrol.model.db.entity;
 
 import android.graphics.drawable.Drawable;
+import android.widget.TextView;
 
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
-import androidx.databinding.library.baseAdapters.BR;
+import androidx.databinding.BindingAdapter;
+import androidx.databinding.InverseBindingAdapter;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
+
+import com.dewan.parentalcontrol.BR;
 
 import java.util.Comparator;
 
@@ -87,7 +91,7 @@ public class AppUsageEntity extends BaseObservable {
 
     public void setTotalAppInForegroundSec(double totalAppInForegroundSec) {
         this.totalAppInForegroundSec = totalAppInForegroundSec;
-        notifyPropertyChanged(BR.totalAppInForegroundSec);
+        notifyPropertyChanged(com.dewan.parentalcontrol.BR.totalAppInForegroundSec);
     }
 
     @Bindable
@@ -97,7 +101,7 @@ public class AppUsageEntity extends BaseObservable {
 
     public void setTotalAppInForegroundMin(double totalAppInForegroundMin) {
         this.totalAppInForegroundMin = totalAppInForegroundMin;
-        notifyPropertyChanged(BR.totalAppInForegroundMin);
+        notifyPropertyChanged(com.dewan.parentalcontrol.BR.totalAppInForegroundMin);
     }
 
     @Bindable
@@ -107,7 +111,17 @@ public class AppUsageEntity extends BaseObservable {
 
     public void setTotalAppInForegroundHr(double totalAppInForegroundHr) {
         this.totalAppInForegroundHr = totalAppInForegroundHr;
-        notifyPropertyChanged(BR.totalAppInForegroundHr);
+        notifyPropertyChanged(com.dewan.parentalcontrol.BR.totalAppInForegroundHr);
+    }
+
+    @BindingAdapter("android:text")
+    public static void setText(TextView view, double value) {
+        view.setText(Double.toString(value));
+    }
+
+    @InverseBindingAdapter(attribute = "android:text")
+    public static double getText(TextView view) {
+        return Double.parseDouble(view.getText().toString());
     }
 
     public static Comparator<AppUsageEntity> totalUsageTimeComparator = new Comparator<AppUsageEntity>() {

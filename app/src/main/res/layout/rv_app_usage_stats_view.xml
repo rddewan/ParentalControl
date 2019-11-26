@@ -6,7 +6,7 @@
     <data>
         <variable
             name="AppUsageStatsProperty"
-            type="com.dewan.parentalcontrol.db.entity.AppUsageEntity" />
+            type="com.dewan.parentalcontrol.model.db.entity.AppUsageEntity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -27,7 +27,8 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@color/card_background">
 
                 <ImageView
                     android:id="@+id/imageView"
@@ -48,6 +49,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@{AppUsageStatsProperty.app_name}"
+                    android:textColor="@color/white"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imageView"
                     app:layout_constraintTop_toTopOf="@+id/imageView"
@@ -60,6 +62,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
                     android:text="@{String.valueOf(AppUsageStatsProperty.totalAppInForegroundSec)}"
+                    android:textColor="@color/white"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/lb_sec"
                     app:layout_constraintTop_toBottomOf="@+id/txt_package_name"
@@ -72,6 +75,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
                     android:text="@{String.valueOf(AppUsageStatsProperty.totalAppInForegroundMin)}"
+                    android:textColor="@color/white"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/lb_min"
                     app:layout_constraintTop_toBottomOf="@+id/txt_total_time_forground_sec"
@@ -85,6 +89,7 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginBottom="8dp"
                     android:text="@{String.valueOf(AppUsageStatsProperty.totalAppInForegroundHr)}"
+                    android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/lb_min"
@@ -98,6 +103,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:text="@string/sec"
+                    android:textColor="@color/white"
                     app:layout_constraintStart_toEndOf="@+id/imageView"
                     app:layout_constraintTop_toBottomOf="@+id/txt_package_name" />
 
@@ -108,6 +114,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:text="@string/min"
+                    android:textColor="@color/white"
                     app:layout_constraintStart_toEndOf="@+id/imageView"
                     app:layout_constraintTop_toBottomOf="@+id/lb_sec" />
 
@@ -118,6 +125,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:text="@string/hr"
+                    android:textColor="@color/white"
                     app:layout_constraintStart_toEndOf="@+id/imageView"
                     app:layout_constraintTop_toBottomOf="@+id/lb_min" />
             </androidx.constraintlayout.widget.ConstraintLayout>
