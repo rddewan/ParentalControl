@@ -37,7 +37,6 @@ public class HomeFragment extends Fragment {
     private HomeViewModel homeViewModel;
     private AppUsageEntity appUsageEntity = new AppUsageEntity();
     private static DecimalFormat decimalFormat;
-    private AdView mAdView;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -49,16 +48,6 @@ public class HomeFragment extends Fragment {
         homeViewModel = ViewModelProviders.of(this).get(HomeViewModel.class);
 
         checkUsageStatsPermission();
-
-        MobileAds.initialize(getActivity(), new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-                Log.e(TAG, "onInitializationComplete: " +  initializationStatus);
-            }
-        });
-        mAdView = fragmentHomeBinding.adView;
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
 
         return view;
     }
