@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 
 import com.dewan.packagemanagerhelper.InstalledAppProperty;
 import com.dewan.packagemanagerhelper.PackageManagerHelper;
@@ -35,6 +37,7 @@ public class InstalledAppFragment extends Fragment {
     private static InstalledAppAdaptor installedAppAdaptor;
     private static ArrayList<InstalledAppEntity> appList = new ArrayList<>();
     private static PackageManagerHelper packageManagerHelper;
+    private static ProgressBar progressBar;
 
 
     private OnFragmentInteractionListener mListener;
@@ -56,6 +59,7 @@ public class InstalledAppFragment extends Fragment {
         fragmentInstalledAppBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_installed_app, container, false);
         view = fragmentInstalledAppBinding.getRoot();
 
+        progressBar = fragmentInstalledAppBinding.progressBar;
         recyclerView = fragmentInstalledAppBinding.rvInstallApp;
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         installedAppAdaptor = new InstalledAppAdaptor();
@@ -74,6 +78,7 @@ public class InstalledAppFragment extends Fragment {
         }
         else {
             installedAppAdaptor.setAppList(appList);
+            progressBar.setVisibility(View.GONE);
         }
 
         return view;
@@ -124,8 +129,8 @@ public class InstalledAppFragment extends Fragment {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-
             installedAppAdaptor.setAppList(appList);
+            progressBar.setVisibility(View.GONE);
             //installedAppAdaptor.notifyDataSetChanged();
 
         }
