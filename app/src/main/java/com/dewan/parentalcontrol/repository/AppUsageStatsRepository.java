@@ -63,7 +63,7 @@ public class AppUsageStatsRepository {
             Log.e(TAG, "doInBackground: ");
             try {
                 UsageStatsHelper.setPackageManager(context.getPackageManager());
-                SortedMap<Long, UsageStats> mySortedMap = UsageStatsHelper.getForegroundApp(context);
+                SortedMap<Long, UsageStats> mySortedMap = UsageStatsHelper.getForegroundAppDaily(context);
                 if (!mySortedMap.isEmpty()) {
                     ArrayList<AppUsageStatsProperty> appStatsLists = UsageStatsHelper.getAppUsageStatsList(mySortedMap);
                     //sort array list

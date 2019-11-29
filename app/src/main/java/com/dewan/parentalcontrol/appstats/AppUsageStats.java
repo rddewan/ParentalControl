@@ -25,7 +25,7 @@ public class AppUsageStats {
                 while (UsageService.isServiceRunning) {
                     try {
 
-                        SortedMap<Long, UsageStats> mySortedMap = UsageStatsHelper.getForegroundApp(context);
+                        SortedMap<Long, UsageStats> mySortedMap = UsageStatsHelper.getForegroundAppDaily(context);
                         if (!mySortedMap.isEmpty()) {
                             currentApp = Objects.requireNonNull(mySortedMap.get(mySortedMap.lastKey())).getPackageName();
                             Log.e(TAG, "currentApp: " + currentApp );

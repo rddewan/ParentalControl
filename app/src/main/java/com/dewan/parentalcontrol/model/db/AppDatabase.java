@@ -61,7 +61,7 @@ public abstract class AppDatabase extends RoomDatabase {
         @Override
         protected Void doInBackground(Void... voids) {
             try {
-                SortedMap<Long, UsageStats> mySortedMap = UsageStatsHelper.getForegroundApp(mContext);
+                SortedMap<Long, UsageStats> mySortedMap = UsageStatsHelper.getForegroundAppDaily(mContext);
                 if (!mySortedMap.isEmpty()) {
                     ArrayList<AppUsageStatsProperty> appStatsLists = UsageStatsHelper.getAppUsageStatsList(mySortedMap);
                     for (int i = 0; i < appStatsLists.size(); i++){

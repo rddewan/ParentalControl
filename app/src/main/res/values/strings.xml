@@ -23,5 +23,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hi_there">Hi There!</string>
     <string name="most_used_app_lable">Your most used app of the day.</string>
+    <string name="daily">daily</string>
+    <string name="weekly">weekly</string>
+    <string name="monthly">monthly</string>
+    <string name="yearly">yearly</string>
 
 </resources>

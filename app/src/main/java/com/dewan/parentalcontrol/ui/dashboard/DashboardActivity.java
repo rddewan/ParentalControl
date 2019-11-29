@@ -3,6 +3,7 @@ package com.dewan.parentalcontrol.ui.dashboard;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.format.DateUtils;
 import android.util.Log;
 
 import com.dewan.parentalcontrol.R;
@@ -22,6 +23,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.preference.PreferenceManager;
 
+import java.util.Calendar;
 import java.util.UUID;
 
 public class DashboardActivity extends AppCompatActivity implements InstalledAppFragment.OnFragmentInteractionListener, AppUsageFragment.OnFragmentInteractionListener {
@@ -65,6 +67,7 @@ public class DashboardActivity extends AppCompatActivity implements InstalledApp
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+
 
     }
 
