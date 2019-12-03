@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
         release {
-            storeFile file('D:\\KeyStrock\\2019\\BinaryITSolution.jks')
+            storeFile file("D:/KeyStrock/2019/BinaryITSolution.jks")
             storePassword '51PJ21fVxXretWv5aZJR'
             keyPassword '51PJ21fVxXretWv5aZJR'
             keyAlias = 'BinaryITSolution'
