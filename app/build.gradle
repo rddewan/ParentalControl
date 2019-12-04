@@ -51,6 +51,10 @@ dependencies {
     annotationProcessor "android.arch.persistence.room:compiler:$room_version"
     //
     implementation 'com.google.android.gms:play-services-ads:18.3.0'
+    //app center
+    def appCenterSdkVersion = '2.5.0'
+    implementation "com.microsoft.appcenter:appcenter-analytics:${appCenterSdkVersion}"
+    implementation "com.microsoft.appcenter:appcenter-crashes:${appCenterSdkVersion}"
 
 }
 repositories {

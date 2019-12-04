@@ -25,6 +25,9 @@ import androidx.preference.PreferenceManager;
 
 import java.util.Calendar;
 import java.util.UUID;
+import com.microsoft.appcenter.AppCenter;
+import com.microsoft.appcenter.analytics.Analytics;
+import com.microsoft.appcenter.crashes.Crashes;
 
 public class DashboardActivity extends AppCompatActivity implements InstalledAppFragment.OnFragmentInteractionListener, AppUsageFragment.OnFragmentInteractionListener {
     private static final String TAG = "DashboardActivity";
@@ -64,9 +67,17 @@ public class DashboardActivity extends AppCompatActivity implements InstalledApp
                 Log.e(TAG, "onInitializationComplete: " +  initializationStatus);
             }
         });
+        /*
+        admob
+         */
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+        /*
+        app center Analytics and Crashes
+         */
+        AppCenter.start(getApplication(), "ffa2580a-690d-4129-b8d3-34536014d1c3",
+                Analytics.class, Crashes.class);
 
 
     }
