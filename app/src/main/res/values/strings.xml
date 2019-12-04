@@ -1,5 +1,9 @@
 <resources>
-    <string name="app_name">Parental Control</string>
+    <string name="app_name">PControl</string>
+    <string name="app_id_test">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="app_id">ca-app-pub-4676526311698326~9030516283</string>
+    <string name="banner_ad_unit_id">ca-app-pub-4676526311698326/4819313691</string>
+    <string name="banner_ad_unit_id_test">ca-app-pub-3940256099942544/6300978111</string>
     <string name="start">Start</string>
     <string name="stop">Stop</string>
     <string name="title_activity_app_usage_stats">AppUsageStatsActivity</string>
@@ -19,5 +23,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hi_there">Hi There!</string>
     <string name="most_used_app_lable">Your most used app of the day.</string>
-    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="daily">daily</string>
+    <string name="weekly">weekly</string>
+    <string name="monthly">monthly</string>
+    <string name="yearly">yearly</string>
+
 </resources>

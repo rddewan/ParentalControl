@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/filter">
+        <item
+            android:id="@+id/daily"
+            android:title="@string/daily" />
+        <item
+            android:id="@+id/weekly"
+            android:title="@string/weekly" />
+        <item
+            android:id="@+id/monthly"
+            android:title="@string/monthly" />
+        <item
+            android:id="@+id/yearly"
+            android:title="@string/yearly" />
+    </group>
+</menu>

@@ -35,15 +35,15 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation "androidx.preference:preference:1.1.0"
     implementation 'com.google.android.material:material:1.0.0'
-    implementation 'androidx.navigation:navigation-fragment:2.0.0'
-    implementation 'androidx.navigation:navigation-ui:2.0.0'
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
+    implementation 'androidx.navigation:navigation-fragment:2.1.0'
+    implementation 'androidx.navigation:navigation-ui:2.1.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     //
-    implementation 'com.github.rddewan:UsageStats:1.0.6'
+    implementation 'com.github.rddewan:UsageStats:1.0.7'
     implementation 'com.github.rddewan:PackageManagerHelper:1.0.2'
     //
     def room_version = "1.1.1"
@@ -51,5 +51,12 @@ dependencies {
     annotationProcessor "android.arch.persistence.room:compiler:$room_version"
     //
     implementation 'com.google.android.gms:play-services-ads:18.3.0'
+    //app center
+    def appCenterSdkVersion = '2.5.0'
+    implementation "com.microsoft.appcenter:appcenter-analytics:${appCenterSdkVersion}"
+    implementation "com.microsoft.appcenter:appcenter-crashes:${appCenterSdkVersion}"
 
+}
+repositories {
+    mavenCentral()
 }
