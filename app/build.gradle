@@ -40,8 +40,7 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
     //
     implementation 'com.github.rddewan:UsageStats:1.0.7'
     implementation 'com.github.rddewan:PackageManagerHelper:1.0.2'
@@ -56,6 +55,26 @@ dependencies {
     implementation "com.microsoft.appcenter:appcenter-analytics:${appCenterSdkVersion}"
     implementation "com.microsoft.appcenter:appcenter-crashes:${appCenterSdkVersion}"
 
+    // Espresso
+    def androidx_test_espresso = "3.2.0"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$androidx_test_espresso"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$androidx_test_espresso"
+    androidTestImplementation "androidx.test.espresso:espresso-intents:$androidx_test_espresso"
+    androidTestImplementation "androidx.test.espresso:espresso-accessibility:$androidx_test_espresso"
+    androidTestImplementation "androidx.test.espresso:espresso-web:$androidx_test_espresso"
+    androidTestImplementation "androidx.test.espresso.idling:idling-concurrent:$androidx_test_espresso"
+
+    // androidx.test
+    def androidx_test = "1.1.0"
+    // Core library
+    androidTestImplementation "androidx.test:core:$androidx_test"
+    // AndroidJUnitRunner and JUnit Rules
+    androidTestImplementation "androidx.test:runner:$androidx_test"
+    androidTestImplementation "androidx.test:rules:$androidx_test"
+    //androidTestImplementation "androidx.test:monitor:$androidx_test"
+    androidTestImplementation "androidx.test.ext:junit:$androidx_test"
+    // Assertions
+    androidTestImplementation "androidx.test.ext:truth:$androidx_test"
 }
 repositories {
     mavenCentral()
