@@ -103,7 +103,7 @@ public class AppUsageFragment extends Fragment {
 
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        inflater.inflate(R.menu.app_usate_stats,menu);
+        inflater.inflate(R.menu.app_usate_stats_menu,menu);
     }
 
     @Override
